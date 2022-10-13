@@ -21,19 +21,11 @@ console.log(`Usage: galosh.js [options] -[n|s] LATITUDE -[e|w] LONGITUDE -z TIME
 }
 
 // Declare latitude
-let latitude = 35.92
-if (args.n) {
-    latitude = args.n
-} else if (args.s) {
-    latitude = -1 * args.s
-}
+let latitude = args.n || args.s * -1
+
 // Declare longitude
-let longitude = 79.05
-if (args.e) {
-    latitude = args.e
-} else if (args.w) {
-    latitude = -1 * args.w
-}
+let longitude = args.e || args.w * -1
+
 // Declare timezone
 let timezone = args.z
 if (timezone == null) {
