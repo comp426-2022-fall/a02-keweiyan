@@ -56,3 +56,8 @@ if (days == 0) {
 } else {
   console.log("tomorrow.")
 }
+
+// Cleanup and exit
+if(args.j){
+	process.exit(0);
+}
