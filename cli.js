@@ -44,8 +44,6 @@ if (timezone == null) {
 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_sum&timezone=' + timezone)
 // Get the data from the request
 const data = await response.json();
-// Log the data onto STDOUT
-console.log(data);
 
 const days = args.d 
 
@@ -59,5 +57,11 @@ if (days == 0) {
 
 // Cleanup and exit
 if(args.j){
+	if(data.error != null){
+		console.log(data.reason);
+	}
+	else {
+	console.log(data);
+	}
 	process.exit(0);
 }
