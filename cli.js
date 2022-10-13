@@ -28,7 +28,7 @@ if (args.n) {
     latitude = -1 * args.s
 }
 // Declare longitude
-let longitude = -79.05
+let longitude = 79.05
 if (args.e) {
     latitude = args.e
 } else if (args.w) {
@@ -46,17 +46,11 @@ const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' 
 const data = await response.json();
 
 if(args.j){
-	if(data.error != null){
-		console.log(data.reason);
-	}
-	else {
 	console.log(data);
-	}
 	process.exit(0);
 }
 
 const days = args.d 
-
 if (days == 0) {
   console.log("today.")
 } else if (days > 1) {
